@@ -1,13 +1,23 @@
 import React, { Component } from "react";
+import { observer, inject } from "mobx-react";
 import SearchForm from "./SearchForm/SearchForm";
 import IconButton from "./IconButton/IconButton";
 import "./MainHeader.css";
-
+@inject("mainMenuStore")
+@observer
 class MainHeader extends Component {
+  toggleMainMenu = e => {
+    e.preventDefault();
+    const { mainMenuStore } = this.props;
+    mainMenuStore.toggleMenuCollapsed();
+  };
   render() {
     return (
       <header className="sj-mh">
-        <button className="button is-primary sj-mh__menu-btn">
+        <button
+          className="button is-primary sj-mh__menu-btn"
+          onClick={this.toggleMainMenu}
+        >
           <span className="fas fa-bars" />
         </button>
         <SearchForm placeholder="Search for something..." />

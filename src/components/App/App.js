@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { observer, inject } from "mobx-react";
 import MainNav from "../MainNav/MainNav";
 import MainHeader from "../MainHeader/MainHeader";
 import "./App.css";
-@inject('mainMenuStore')
 class App extends Component {
   render() {
     return (

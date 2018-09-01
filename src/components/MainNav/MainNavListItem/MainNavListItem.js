@@ -5,10 +5,12 @@ import "./MainNavListItem.css";
 
 class MainNavListItem extends Component {
   renderSubNav = children => {
-    return children.map(item => <MainNavListItem item={item} />);
+    return children.map((item, index) => (
+      <MainNavListItem item={item} key={index} />
+    ));
   };
   render() {
-    const { item } = this.props;
+    const { item, clickHandler } = this.props;
     return (
       <li
         className={cx(
@@ -16,7 +18,12 @@ class MainNavListItem extends Component {
           item.active ? "sj-mn__list-item--is-active" : ""
         )}
       >
-        <a href={item.url} title={item.title} className="button is-radiusless">
+        <a
+          href={item.url}
+          title={item.title}
+          className="button is-radiusless"
+          onClick={clickHandler}
+        >
           {/* Check if item has icon */}
           {item.icon ? (
             <span className="icon">
@@ -63,7 +70,8 @@ MainNavListItem.propTypes = {
         url: PropTypes.string.isRequired
       })
     )
-  })
+  }),
+  clickHandler: PropTypes.func
 };
 
 export default MainNavListItem;
