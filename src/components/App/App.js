@@ -12,6 +12,9 @@ class App extends Component {
             <MainHeader />
           </main>
         </div>
+        <button className="sj-settings-btn button is-primary">
+          <span className="fas fa-cogs"></span>
+        </button>
       </div>
     );
   }

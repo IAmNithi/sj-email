@@ -51,4 +51,19 @@ body,
     overflow: hidden;
     position: relative;
   }
+  &-settings-btn {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    border-radius: 0;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    .fas {
+      margin-left: 6px;
+      transform: rotate(-140deg);
+    }
+  }
 }
