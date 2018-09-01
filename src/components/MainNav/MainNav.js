@@ -4,6 +4,7 @@ import MainNavListItem from "./MainNavListItem/MainNavListItem";
 import "./MainNav.css";
 import { cx } from "emotion";
 @inject("mainMenuStore")
+@inject("userStore")
 @observer
 class MainNav extends Component {
   activateItem = index => e => {
@@ -16,7 +17,7 @@ class MainNav extends Component {
     mainMenuStore.getMainMenuItems();
   }
   render() {
-    const { mainMenuStore } = this.props;
+    const { mainMenuStore, userStore } = this.props;
     return (
       <aside
         className={cx(
@@ -25,6 +26,25 @@ class MainNav extends Component {
         )}
       >
         <nav className="sj-mn__nav">
+          {!mainMenuStore.mainMenuCollapsed ? (
+            <section className="sj-mn-user">
+              <div className="sj-mn-user__img">
+                <img
+                  src={userStore.user.thumbnail}
+                  alt={userStore.user.fullName}
+                />
+              </div>
+              <span className="sj-mn-user__name">
+                {userStore.user.fullName}
+              </span>
+              <span className="sj-mn-user__designation">
+                {userStore.user.designation}
+                <span className="fas fa-sort-down" />
+              </span>
+            </section>
+          ) : (
+            <section className="sj-mn-logo">IN+</section>
+          )}
           <ul className="sj-mn__list">
             {mainMenuStore.mainMenuItems.map((item, index) => (
               <MainNavListItem

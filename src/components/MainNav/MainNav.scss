@@ -21,5 +21,41 @@
         padding: 0;
       }
     }
+    &-logo{
+      height: 60px;
+      background-color: $mainNavBgActive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $white;
+      font-weight: 600;
+    }
+    &-user {
+      padding: 35px 25px;
+      background-color: $mainNavBgActive;
+      &__img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      &__name {
+        display: block;
+        font-weight: 600;
+        color: $white;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+      &__designation {
+        display: block;
+        font-weight: 600;
+        font-size: 14px;
+        color: $grey4;
+        white-space: nowrap;
+        .fas {
+          margin-left: 5px;
+        }
+      }
+    }
   }
 }

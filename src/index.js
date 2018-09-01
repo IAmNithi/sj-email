@@ -8,10 +8,11 @@ import "normalize-css";
 import "./assets/sass/bulma.css";
 import App from "./components/App/App";
 import mainMenuStore from "./stores/mainMenuStore";
+import userStore from './stores/userStore';
 import registerServiceWorker from "./registerServiceWorker";
 
 ReactDOM.render(
-  <Provider mainMenuStore={mainMenuStore}>
+  <Provider mainMenuStore={mainMenuStore} userStore={userStore}>
     <App />
   </Provider>,
   document.getElementById("root")

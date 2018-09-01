@@ -10,7 +10,14 @@
         overflow: hidden;
         transition: all 0.3s 0s ease-in-out;
         .button {
-          padding-left: 55px;
+          height: 35px;
+          padding: 5px 25px 5px 55px;
+          span {
+            margin: 0 !important;
+          }
+        }
+        li:last-child {
+          margin-bottom: 7px;
         }
       }
       .button {
@@ -72,6 +79,7 @@
       &--is-active {
         position: relative;
         ul {
+          background-color: $mainNavBgActive;
           .sj-mn--expanded & {
             height: auto;
             opacity: 1;

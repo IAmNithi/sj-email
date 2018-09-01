@@ -3,7 +3,7 @@
     "icon": "th-large",
     "title": "Dashboard",
     "label": "Dashboard",
-    "url": "https://sahajsoft.com",
+    "url": "#",
     "badge": null,
     "active": false,
     "children": []
@@ -12,7 +12,7 @@
     "icon": "gem",
     "title": "Layouts",
     "label": "Layouts",
-    "url": "https://sahajsoft.com",
+    "url": "#",
     "badge": null,
     "active": false,
     "children": []
@@ -21,7 +21,7 @@
     "icon": "chart-bar",
     "title": "Graphs",
     "label": "Graphs",
-    "url": "https://sahajsoft.com",
+    "url": "#",
     "badge": null,
     "active": false,
     "children": []
@@ -30,22 +30,32 @@
     "icon": "envelope",
     "title": "Mailbox",
     "label": "Mailbox",
-    "url": "https://sahajsoft.com",
+    "url": "#",
     "badge": {
       "text": "16/24",
       "type": "warning"
     },
-    "active": false,
+    "active": true,
     "children": [
       {
-        "title": "Mailbox",
-        "label": "Mailbox",
-        "url": "https://sahajsoft.com"
+        "title": "Inbox",
+        "label": "Inbox",
+        "url": "#"
       },
       {
-        "title": "Mailbox",
-        "label": "Mailbox",
-        "url": "https://sahajsoft.com"
+        "title": "Email view",
+        "label": "Email view",
+        "url": "#"
+      },
+      {
+        "title": "Compose Email",
+        "label": "Compose Email",
+        "url": "#"
+      },
+      {
+        "title": "Email templates",
+        "label": "Email templates",
+        "url": "#"
       }
     ]
   },
@@ -53,7 +63,7 @@
     "icon": "chart-pie",
     "title": "Metrics",
     "label": "Metrics",
-    "url": "https://sahajsoft.com",
+    "url": "#",
     "badge": null,
     "active": false,
     "children": []
@@ -62,7 +72,7 @@
     "icon": "flask",
     "title": "Widgets",
     "label": "Widgets",
-    "url": "https://sahajsoft.com",
+    "url": "#",
     "badge": null,
     "active": false,
     "children": []
@@ -71,7 +81,7 @@
     "icon": "edit",
     "title": "Froms",
     "label": "Froms",
-    "url": "https://sahajsoft.com",
+    "url": "#",
     "badge": null,
     "active": false,
     "children": []
@@ -80,7 +90,7 @@
     "icon": "desktop",
     "title": "App Views",
     "label": "App Views",
-    "url": "https://sahajsoft.com",
+    "url": "#",
     "badge": {
       "text": "special",
       "type": "primary"
