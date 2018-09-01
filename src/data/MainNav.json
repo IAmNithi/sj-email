@@ -1,0 +1,80 @@
+[
+  {
+    "icon": "th-large",
+    "title": "Dashboard",
+    "label": "Dashboard",
+    "url": "https://sahajsoft.com",
+    "badge": null,
+    "active": false,
+    "children": []
+  },
+  {
+    "icon": "gem",
+    "title": "Layouts",
+    "label": "Layouts",
+    "url": "https://sahajsoft.com",
+    "badge": null,
+    "active": false,
+    "children": []
+  },
+  {
+    "icon": "chart-bar",
+    "title": "Graphs",
+    "label": "Graphs",
+    "url": "https://sahajsoft.com",
+    "badge": null,
+    "active": false,
+    "children": []
+  },
+  {
+    "icon": "envelope",
+    "title": "Mailbox",
+    "label": "Mailbox",
+    "url": "https://sahajsoft.com",
+    "badge": {
+      "text": "16/24",
+      "type": "warning"
+    },
+    "active": true,
+    "children": []
+  },
+  {
+    "icon": "chart-pie",
+    "title": "Metrics",
+    "label": "Metrics",
+    "url": "https://sahajsoft.com",
+    "badge": null,
+    "active": false,
+    "children": []
+  },
+  {
+    "icon": "flask",
+    "title": "Widgets",
+    "label": "Widgets",
+    "url": "https://sahajsoft.com",
+    "badge": null,
+    "active": false,
+    "children": []
+  },
+  {
+    "icon": "edit",
+    "title": "Froms",
+    "label": "Froms",
+    "url": "https://sahajsoft.com",
+    "badge": null,
+    "active": false,
+    "children": []
+  },
+  {
+    "icon": "desktop",
+    "title": "App Views",
+    "label": "App Views",
+    "url": "https://sahajsoft.com",
+    "badge": {
+      "text": "special",
+      "type": "primary"
+    },
+    "active": false,
+    "children": []
+  }
+]

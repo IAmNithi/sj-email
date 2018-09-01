@@ -1,0 +1,18 @@
+@import "../../assets/sass/_variables.scss";
+.sj {
+  &-mh {
+    height: 60px;
+    border-bottom: 1px solid $mainHeaderBorder;
+    background-color: $mainHeaderBg;
+    padding: 10px 20px 15px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__menu-btn {
+      padding-left: 12px;
+      padding-right: 12px;
+      height: 30px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../assets/sass/_variables.scss";
+.sj {
+  &-mn {
+    width: 70px;
+    background-color: $mainNavBg;
+    overflow-y: auto;
+    transition: all 0.3s 0s ease-out;
+    &--expanded {
+      width: 220px;
+    }
+
+    &__nav {
+      height: 100%;
+      width: 100%;
+      top: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

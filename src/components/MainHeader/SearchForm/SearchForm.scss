@@ -1,0 +1,17 @@
+@import "../../../assets/sass/_variables.scss";
+.sj {
+  &-mh {
+    &__search {
+      flex: 1;
+      padding: 0 10px;
+      height: 100%;
+
+      input[type="search"] {
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 0 5px;
+      }
+    }
+  }
+}
