@@ -7,10 +7,10 @@
   height: 6px !important;
 }
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.3);
 }
 *::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 html,
@@ -50,6 +50,13 @@ body,
     height: 100%;
     overflow: hidden;
     position: relative;
+  }
+  &-content {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    overflow: hidden;
+    padding: 20px 25px 0;
   }
   &-settings-btn {
     position: absolute;

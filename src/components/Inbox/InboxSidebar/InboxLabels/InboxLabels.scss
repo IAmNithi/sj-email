@@ -1,0 +1,19 @@
+.sj {
+  &-inbox {
+    &-labels {
+      padding-top: 15px;
+    }
+    &__label {
+      border: 1px solid #e7eaec;
+      padding-right: 10px !important;
+      padding-left: 10px !important;
+      .fas {
+        margin-right: 4px;
+        font-size: 10px;
+      }
+      &:not(:last-child){
+          margin-right: 5px !important;
+      }
+    }
+  }
+}

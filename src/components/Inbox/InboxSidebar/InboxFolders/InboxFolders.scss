@@ -1,0 +1,39 @@
+@import "../../../../assets/sass/_variables.scss";
+.sj {
+  &-inbox {
+    &-folders {
+      padding-top: 8px;
+    }
+    &__folder {
+      padding: 0 1px;
+      border-top: 1px solid $grey2;
+      &:last-child {
+        border-bottom: 1px solid $grey2;
+      }
+      .button {
+        width: 100%;
+        background: transparent;
+        font-size: 14px;
+        text-align: left;
+        justify-content: flex-start;
+        padding-left: 22px;
+        font-weight: 600;
+        color: $grey5;
+        transition: all 0.3s 0s ease-in-out;
+        &:hover,
+        &:focus {
+          background-color: $grey2;
+        }
+      }
+      &-text {
+        flex: 1;
+      }
+      &-icon {
+        position: absolute;
+        color: $blueGrey;
+        left: 0;
+        top: 10px;
+      }
+    }
+  }
+}

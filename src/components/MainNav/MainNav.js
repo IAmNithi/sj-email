@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
+import { cx } from "emotion";
 import MainNavListItem from "./MainNavListItem/MainNavListItem";
 import "./MainNav.css";
-import { cx } from "emotion";
 @inject("mainMenuStore")
 @inject("userStore")
 @observer

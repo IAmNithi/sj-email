@@ -1,0 +1,41 @@
+@import "../../../assets/sass/_variables.scss";
+.sj {
+  &-inbox {
+    &-sidebar {
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px 20px;
+      position: relative;
+      width: 250px;
+      transition: all 0.3s 0s ease-in-out;
+      overflow: hidden;
+      &--expanded {
+        width: 288px;
+      }
+      &-inner {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0 0 10px;
+
+        > ul > li {
+          margin-bottom: 15px;
+          font-size: 14px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          > span {
+            text-transform: uppercase;
+            font-weight: 600;
+            color: $grey5;
+            display: block;
+          }
+        }
+      }
+      &__compose {
+        margin-top: 10px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}

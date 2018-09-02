@@ -1,36 +1,32 @@
 [
   {
-    "icon": "th-large",
+    "icon": "fas fa-th-large",
     "title": "Dashboard",
     "label": "Dashboard",
-    "url": "#",
     "badge": null,
     "active": false,
     "children": []
   },
   {
-    "icon": "gem",
+    "icon": "far fa-gem",
     "title": "Layouts",
     "label": "Layouts",
-    "url": "#",
     "badge": null,
     "active": false,
     "children": []
   },
   {
-    "icon": "chart-bar",
+    "icon": "far fa-chart-bar",
     "title": "Graphs",
     "label": "Graphs",
-    "url": "#",
     "badge": null,
     "active": false,
     "children": []
   },
   {
-    "icon": "envelope",
+    "icon": "fas fa-envelope",
     "title": "Mailbox",
     "label": "Mailbox",
-    "url": "#",
     "badge": {
       "text": "16/24",
       "type": "warning"
@@ -60,37 +56,33 @@
     ]
   },
   {
-    "icon": "chart-pie",
+    "icon": "fas fa-chart-pie",
     "title": "Metrics",
     "label": "Metrics",
-    "url": "#",
     "badge": null,
     "active": false,
     "children": []
   },
   {
-    "icon": "flask",
+    "icon": "fas fa-flask",
     "title": "Widgets",
     "label": "Widgets",
-    "url": "#",
     "badge": null,
     "active": false,
     "children": []
   },
   {
-    "icon": "edit",
+    "icon": "fas fa-edit",
     "title": "Froms",
     "label": "Froms",
-    "url": "#",
     "badge": null,
     "active": false,
     "children": []
   },
   {
-    "icon": "desktop",
+    "icon": "fas fa-desktop",
     "title": "App Views",
     "label": "App Views",
-    "url": "#",
     "badge": {
       "text": "special",
       "type": "primary"

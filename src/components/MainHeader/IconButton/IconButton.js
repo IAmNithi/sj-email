@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { cx } from "emotion";
 import "./IconButton.css";
-
+import InlineBadge from "../../InlineBadge/InlineBadge";
 class IconButton extends Component {
   /**
    *Function to check if the icon button has badge
@@ -11,15 +11,8 @@ class IconButton extends Component {
     const { badgeType, badgeValue } = this.props;
     return badgeType && badgeValue;
   };
-  /**
-   * Function to get the badge type
-   */
-  getBadgeType = () => {
-    const { badgeType } = this.props;
-    return `has-background-${badgeType}`;
-  };
   render() {
-    const { badgeValue, icon, text } = this.props;
+    const { badgeValue, badgeType, icon, text } = this.props;
     return (
       <button
         className={cx(
@@ -32,11 +25,9 @@ class IconButton extends Component {
         </span>
         {/* Check if button has text */}
         {text ? <span>{text}</span> : null}
-        {/* Check if button has badge and render appropriately */}
+        {/* Check if button has badge */}
         {this.hasBadge() ? (
-          <span className={cx("sj-mh__icon-btn-text", this.getBadgeType())}>
-            {badgeValue}
-          </span>
+          <InlineBadge type={badgeType} text={badgeValue} />
         ) : null}
       </button>
     );
@@ -55,7 +46,7 @@ IconButton.propTypes = {
     "success",
     "danger"
   ]),
-  badgeValue: PropTypes.number
+  badgeValue: PropTypes.string
 };
 
 export default IconButton;

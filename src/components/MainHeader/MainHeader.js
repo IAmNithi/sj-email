@@ -21,8 +21,8 @@ class MainHeader extends Component {
           <span className="fas fa-bars" />
         </button>
         <SearchForm placeholder="Search for something..." />
-        <IconButton icon="envelope" badgeType="warning" badgeValue={16} />
-        <IconButton icon="bell" badgeType="primary" badgeValue={8} />
+        <IconButton icon="envelope" badgeType="warning" badgeValue="16" />
+        <IconButton icon="bell" badgeType="primary" badgeValue="8" />
         <IconButton icon="sign-out-alt" text="Log out" />
       </header>
     );

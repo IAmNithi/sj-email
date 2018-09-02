@@ -1,0 +1,35 @@
+@import "../../../../assets/sass/_variables.scss";
+.sj {
+  &-inbox {
+    &-categories {
+      padding-top: 8px;
+    }
+    &__category {
+      padding: 0 1px;
+      .button {
+        width: 100%;
+        background: transparent;
+        font-size: 14px;
+        text-align: left;
+        justify-content: flex-start;
+        padding-left: 22px;
+        font-weight: 600;
+        color: $grey5;
+        transition: all 0.3s 0s ease-in-out;
+        &:hover,
+        &:focus {
+          background-color: $grey2;
+        }
+      }
+      &-color {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background-color: $grey3;
+        border-radius: 50%;
+        left: 0;
+        top: 10px;
+      }
+    }
+  }
+}

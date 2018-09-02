@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { cx } from "emotion";
 import PropTypes from "prop-types";
 import "./MainNavListItem.css";
+import InlineBadge from "../../InlineBadge/InlineBadge";
 
 class MainNavListItem extends Component {
   renderSubNav = children => {
@@ -27,21 +28,13 @@ class MainNavListItem extends Component {
           {/* Check if item has icon */}
           {item.icon ? (
             <span className="icon">
-              <i className={cx("fas", `fa-${item.icon}`)} />
+              <i className={item.icon} />
             </span>
           ) : null}
           <span className="text text--fade-in">{item.label}</span>
           {/* Check if item has badge */}
           {item.badge ? (
-            <span
-              className={cx(
-                "badge",
-                "text--fade-in",
-                `has-background-${item.badge.type}`
-              )}
-            >
-              {item.badge.text}
-            </span>
+            <InlineBadge className="text--fade-in" type={item.badge.type} text={item.badge.text}/>
           ) : null}
         </a>
         {item.children && item.children.length ? (
