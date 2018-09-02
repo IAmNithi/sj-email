@@ -1,0 +1,54 @@
+@import "../../../../assets/sass/_variables.scss";
+.sj {
+  &-inbox {
+    &-header {
+      background-color: $white;
+      border: 1px solid $grey2;
+      padding: 35px 20px 20px;
+      .flex {
+        flex: 1;
+        min-width: 5px;
+      }
+      &-search {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .title:not(:last-child),
+        .subtitle:not(:last-child) {
+          margin: 0;
+          flex-shrink: 0;
+        }
+
+        .input,
+        .button {
+          height: 30px;
+          font-size: 14px;
+          font-weight: 600;
+          box-shadow: none;
+        }
+
+        .input {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+      &-actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .button {
+          font-size: 14px;
+          color: #676a6c;
+        }
+        > .button {
+          margin-left: 5px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
