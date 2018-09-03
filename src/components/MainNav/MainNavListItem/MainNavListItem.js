@@ -3,7 +3,9 @@ import { cx } from "emotion";
 import PropTypes from "prop-types";
 import "./MainNavListItem.css";
 import InlineBadge from "../../InlineBadge/InlineBadge";
-
+import { observer, inject } from "mobx-react";
+@inject("inboxStore")
+@observer
 class MainNavListItem extends Component {
   renderSubNav = children => {
     return children.map((item, index) => (
@@ -11,7 +13,7 @@ class MainNavListItem extends Component {
     ));
   };
   render() {
-    const { item, clickHandler } = this.props;
+    const { item, clickHandler, inboxStore } = this.props;
     return (
       <li
         className={cx(
@@ -34,7 +36,18 @@ class MainNavListItem extends Component {
           <span className="text text--fade-in">{item.label}</span>
           {/* Check if item has badge */}
           {item.badge ? (
-            <InlineBadge className="text--fade-in" type={item.badge.type} text={item.badge.text}/>
+            <InlineBadge
+              className="text--fade-in"
+              type={item.badge.type}
+              text={item.badge.text}
+            />
+          ) : null}
+          {item.label === "Mailbox" && inboxStore.unreadCount ? (
+            <InlineBadge
+              className="text--fade-in"
+              type="warning"
+              text={`${inboxStore.unreadCount.toString()}/${inboxStore.count.toString()}`}
+            />
           ) : null}
         </a>
         {item.children && item.children.length ? (

@@ -24,6 +24,7 @@ class MainNav extends Component {
           "sj-mn",
           mainMenuStore.mainMenuCollapsed ? "" : "sj-mn--expanded"
         )}
+        role="navigation"
       >
         <nav className="sj-mn__nav">
           {!mainMenuStore.mainMenuCollapsed ? (

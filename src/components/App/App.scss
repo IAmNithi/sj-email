@@ -26,6 +26,24 @@ body,
 .is-borderless {
   border: none !important;
 }
+
+.Toastify__toast {
+  border-radius: 3px;
+  min-height: 40px;
+  padding-left:20px;
+  padding-right:20px;
+  &-body {
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+  }
+  &--info{
+    background: #3273dc;
+  }
+  &--success{
+    background: #1bb394;
+  }
+}
 .sj {
   &-root {
     width: 100%;
@@ -52,11 +70,11 @@ body,
       justify-content: center;
       flex-direction: column;
       color: $white;
-      h1{
+      h1 {
         font-size: 30px;
         font-weight: 600;
       }
-      p{
+      p {
         text-align: center;
       }
     }

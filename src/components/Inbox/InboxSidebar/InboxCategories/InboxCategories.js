@@ -10,7 +10,7 @@ class InboxCategories extends Component {
       <ul className="sj-inbox-categories">
         {categories.map((category, idx) => (
           <li key={idx} className="sj-inbox__category">
-            <button className="button is-borderless is-radiusless">
+            <button className="button is-borderless is-radiusless" title={category.label}>
               <span className={cx("sj-inbox__category-color", `has-background-${category.color}`)}/>
               {category.label}
             </button>

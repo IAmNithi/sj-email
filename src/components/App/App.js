@@ -4,6 +4,8 @@ import { observer, inject } from "mobx-react";
 import MainNav from "../MainNav/MainNav";
 import MainHeader from "../MainHeader/MainHeader";
 import Inbox from "../Inbox/Inbox";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 
 @inject("mainMenuStore")
@@ -69,16 +71,27 @@ class App extends Component {
           <Fragment>
             <div className="sj-app">
               <MainNav />
-              <main className="sj-main">
+              <div className="sj-main">
                 <MainHeader />
-                <div className="sj-content">
+                <main className="sj-content" role="main">
                   <Inbox />
-                </div>
-              </main>
+                </main>
+              </div>
             </div>
             <button className="sj-settings-btn button is-primary">
               <span className="fas fa-cogs" />
             </button>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={2000}
+              hideProgressBar
+              newestOnTop
+              closeOnClick
+              rtl={false}
+              pauseOnVisibilityChange={false}
+              draggable={false}
+              pauseOnHover={false}
+            />
           </Fragment>
         )}
       </div>

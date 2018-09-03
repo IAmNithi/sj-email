@@ -27,16 +27,13 @@
     "icon": "fas fa-envelope",
     "title": "Mailbox",
     "label": "Mailbox",
-    "badge": {
-      "text": "16/24",
-      "type": "warning"
-    },
     "active": true,
     "children": [
       {
         "title": "Inbox",
         "label": "Inbox",
-        "url": "#"
+        "url": "#",
+        "active": true
       },
       {
         "title": "Email view",

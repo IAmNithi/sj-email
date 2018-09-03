@@ -1,0 +1,41 @@
+.sj {
+  &-inbox {
+    &-mails {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      &-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      &-list {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        border-spacing: 0;
+        padding: 0;
+        border-collapse: collapse;
+      }
+      .col {
+        &-checkbox,
+        &-attachment {
+          width: 55px;
+        }
+        &-name {
+          width: 200px;
+        }
+        &-attachment {
+          width: 25px;
+        }
+        &-datetime {
+          width: 180px;
+        }
+      }
+    }
+  }
+}

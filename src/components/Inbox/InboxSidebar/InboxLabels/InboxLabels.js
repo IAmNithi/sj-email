@@ -8,7 +8,7 @@ class InboxLabels extends Component {
     return (
       <div className="tags sj-inbox-labels">
         {labels.map((label, idx) => (
-          <button className="tag sj-inbox__label" key={idx}>
+          <button className="tag sj-inbox__label" key={idx} title={label}>
             <span className="fas fa-tag" />
             {label}
           </button>
