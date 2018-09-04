@@ -18,7 +18,7 @@ class InboxSidebar extends Component {
           mainMenuStore.mainMenuCollapsed ? "sj-inbox-sidebar--expanded" : ""
         )}
       >
-        <button className="sj-inbox-sidebar__compose button is-primary">
+        <button className="sj-inbox-sidebar__compose button is-primary" onClick={inboxStore.openComposeModal}>
           Compose Mail
         </button>
         <div className="sj-inbox-sidebar-inner">

@@ -6,6 +6,10 @@ class InboxStore {
   emails = [];
   @observable
   selection = [];
+  @observable
+  composeModalOpen = false;
+  @observable
+  composeModalData = {};
   @computed
   get inboxLabels() {
     return [
@@ -159,6 +163,14 @@ class InboxStore {
       this.emails = emailsToKeep;
       this.selection = [];
     }
+  }
+  @action.bound
+  openComposeModal() {
+    this.composeModalOpen = true;
+  }
+  @action.bound
+  closeComposeModal() {
+    this.composeModalOpen = false;
   }
 }
 
