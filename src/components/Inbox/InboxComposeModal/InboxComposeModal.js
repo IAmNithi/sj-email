@@ -33,7 +33,7 @@ class InboxComposeModal extends Component {
           </button>
         </header>
         <section className="sj-compose-modal__body">
-          <InboxComposeForm submitCb={submitCb} />
+          <InboxComposeForm submitCb={submitCb} closeCb={closeCb}/>
         </section>
       </Modal>
     );

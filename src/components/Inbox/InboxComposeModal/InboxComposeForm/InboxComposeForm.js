@@ -47,7 +47,7 @@ class InboxComposeForm extends Component {
   validateTo = value => {
     return value && value.trim()
       ? this.checkMultipleEmails(value)
-      : "Enter on or more recipients separated by a semi colon";
+      : "Enter one or more recipients separated by a semi colon";
   };
   /**
    * Function to validate the email Cc field
@@ -64,7 +64,7 @@ class InboxComposeForm extends Component {
       : "Enter a subject";
   };
   render() {
-    const { submitCb } = this.props;
+    const { submitCb, closeCb } = this.props;
     return (
       <Form id="message" onSubmit={submitCb}>
         {({ formState }) => (
@@ -149,7 +149,7 @@ class InboxComposeForm extends Component {
                 Send Mail
               </button>
               <span className="flex" />
-              <button type="button" className="button" title="Delete Message">
+              <button type="button" className="button" title="Delete Message" onClick={closeCb}>
                 <span className="icon is-small">
                   <i className="far fa-trash-alt" />
                 </span>
@@ -163,7 +163,8 @@ class InboxComposeForm extends Component {
 }
 
 InboxComposeForm.propTypes = {
-  submitCb: PropTypes.func
+  submitCb: PropTypes.func,
+  closeCb: PropTypes.func
 };
 
 export default InboxComposeForm;
