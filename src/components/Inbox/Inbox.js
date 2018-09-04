@@ -4,6 +4,7 @@ import InboxMain from "./InboxMain/InboxMain";
 import { inject, observer } from "mobx-react";
 import "./Inbox.css";
 import InboxComposeModal from "./InboxComposeModal/InboxComposeModal";
+import InboxItemModal from "./InboxItemModal/InboxItemModal";
 @inject("inboxStore")
 @observer
 class Inbox extends Component {
@@ -18,11 +19,15 @@ class Inbox extends Component {
         <InboxSidebar />
         <InboxMain />
         <InboxComposeModal
-          write={false}
-          data={inboxStore.composeModalData}
           isOpen={inboxStore.composeModalOpen}
           closeCb={inboxStore.closeComposeModal}
+          submitCb={inboxStore.addMail}
           title={"New Message"}
+        />
+        <InboxItemModal
+          isOpen={inboxStore.itemModalOpen}
+          closeCb={inboxStore.closeItemModal}
+          data={inboxStore.itemModalData}
         />
       </Fragment>
     );

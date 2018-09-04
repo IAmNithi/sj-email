@@ -24,6 +24,8 @@ class InboxMails extends Component {
                   selected={email.selected}
                   read={email.read}
                   data={email}
+                  clickCb={inboxStore.setItemModalData}
+                  selectCb={inboxStore.updateSelection}
                   key={email.id}
                 />
               ))}

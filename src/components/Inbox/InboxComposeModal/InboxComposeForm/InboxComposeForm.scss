@@ -1,0 +1,11 @@
+form#message {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
-import "./InboxComposeModal.css";
 import PropTypes from "prop-types";
+import InboxComposeForm from "./InboxComposeForm/InboxComposeForm";
+import "./InboxComposeModal.css";
+
 Modal.setAppElement("#root");
 
 const customComposeModalStyles = {
@@ -12,7 +14,7 @@ const customComposeModalStyles = {
 
 class InboxComposeModal extends Component {
   render() {
-    const { isOpen, closeCb, title } = this.props;
+    const { isOpen, closeCb, title, submitCb } = this.props;
     return (
       <Modal
         isOpen={isOpen}
@@ -31,55 +33,7 @@ class InboxComposeModal extends Component {
           </button>
         </header>
         <section className="sj-compose-modal__body">
-          <form>
-            <div className="sj-compose-modal__fields">
-              <div class="field has-addons">
-                <div class="control">
-                  <span class="button is-static">To:</span>
-                </div>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="test@gmail.com"
-                  />
-                </div>
-              </div>
-              <div class="field has-addons">
-                <div class="control">
-                  <span class="button is-static">Cc:</span>
-                </div>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="test@gmail.com"
-                  />
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input class="input" type="text" placeholder="Subject" />
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <textarea class="textarea" placeholder="Message" rows="10" />
-                </div>
-              </div>
-            </div>
-            <div className="sj-compose-modal__actions">
-              <button type="submit" className="button is-primary" title="Send">
-                Send Mail
-              </button>
-              <span className="flex" />
-              <button type="button" className="button" title="Delete Message">
-                <span className="icon is-small">
-                  <i className="far fa-trash-alt" />
-                </span>
-              </button>
-            </div>
-          </form>
+          <InboxComposeForm submitCb={submitCb} />
         </section>
       </Modal>
     );
@@ -89,9 +43,8 @@ class InboxComposeModal extends Component {
 InboxComposeModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeCb: PropTypes.func,
-  title: PropTypes.string.isRequired,
-  write: PropTypes.bool,
-  data: PropTypes.any.isRequired
+  submitCb: PropTypes.func,
+  title: PropTypes.string.isRequired
 };
 
 export default InboxComposeModal;

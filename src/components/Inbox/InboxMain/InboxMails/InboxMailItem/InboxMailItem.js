@@ -3,31 +3,29 @@ import "./InboxMailItem.css";
 import { cx } from "emotion";
 import InlineBadge from "../../../../InlineBadge/InlineBadge";
 import PropTypes from "prop-types";
-import { observer, inject } from "mobx-react";
-@inject("inboxStore")
-@observer
+
 class InboxMailItem extends Component {
   toggleSelection = id => e => {
     e.preventDefault();
     e.stopPropagation();
-    const { inboxStore } = this.props;
-    inboxStore.updateSelection(id);
+    const { selectCb } = this.props;
+    selectCb(id);
   };
-  showMail = id => e => {
+  showMail = data => e => {
     e.preventDefault();
     e.stopPropagation();
-    const { inboxStore } = this.props;
-    inboxStore.setEmailRead(id);
+    const { clickCb } = this.props;
+    clickCb(data);
   };
   render() {
-    const { data, read,selected } = this.props;
+    const { data, read, selected } = this.props;
     return (
       <tr
         className={cx(
           "sj-inbox-mails-list__item",
           read ? null : "sj-inbox-mails-list__item--unread"
         )}
-        onClick={this.showMail(data.id)}
+        onClick={this.showMail(data)}
       >
         <td className="td-checkbox">
           <div className="td-inner td-inner--checkbox">
@@ -87,6 +85,8 @@ class InboxMailItem extends Component {
 InboxMailItem.propTypes = {
   data: PropTypes.any.isRequired,
   read: PropTypes.bool.isRequired,
-  selected: PropTypes.bool.isRequired
+  selected: PropTypes.bool.isRequired,
+  selectCb: PropTypes.func.isRequired,
+  clickCb: PropTypes.func.isRequired
 };
 export default InboxMailItem;

@@ -1,7 +1,11 @@
-import { computed, observable, action } from "mobx";
+import { computed, observable, action, reaction } from "mobx";
+import * as store from "store";
 import * as orderBy from "lodash.orderby";
 class InboxStore {
   year = new Date().getFullYear();
+  userFirstName = "David";
+  userLastName = "Williams";
+  userEmail = "d_williams@sahajsoft.com";
   @observable
   emails = [];
   @observable
@@ -9,7 +13,9 @@ class InboxStore {
   @observable
   composeModalOpen = false;
   @observable
-  composeModalData = {};
+  itemModalOpen = false;
+  @observable
+  itemModalData = {};
   @computed
   get inboxLabels() {
     return [
@@ -79,38 +85,46 @@ class InboxStore {
   }
   @action.bound
   async getEmails() {
-    const data = await import("../data/EmailData.json");
-    this.emails = data;
+    const emails = store.get("sj.emails");
+    if (emails) {
+      this.emails = emails;
+    } else {
+      const data = await import("../data/EmailData.json");
+      this.emails = data;
+    }
   }
   @computed
   get getEmailsData() {
-    const emails = [...this.emails];
-    return orderBy(
-      emails.map(email => {
-        email.read = email.read || false;
-        const emailDateTime = window.moment(email.email_date);
-        const emailYear = emailDateTime.year();
-        if (emailYear < this.year) {
-          email.formatted_date = emailDateTime.format("LL");
+    const emails = [];
+    this.emails.forEach(email => {
+      const computedData = Object.assign({}, email, {
+        read: email.read || false,
+        selected: this.selection.indexOf(email.id) > -1
+      });
+      const emailDateTime = window.moment(email.email_date);
+      const emailYear = emailDateTime.year();
+      if (emailYear < this.year) {
+        computedData.formatted_date = emailDateTime.format("LL");
+      } else {
+        if (window.moment().diff(emailDateTime, "days") === 0) {
+          computedData.formatted_date = emailDateTime.format("LT");
         } else {
-          if (window.moment().diff(emailDateTime, "days") === 0) {
-            email.formatted_date = emailDateTime.format("LT");
-          } else {
-            email.formatted_date = emailDateTime.format("MMMM D");
-          }
+          computedData.formatted_date = emailDateTime.format("MMMM D");
         }
-        if (email.email_category) {
-          const catData = email.email_category.split("-");
-          email.category = {
-            type: catData[1],
-            text: catData[0]
-          };
-        }
-        email.selected = this.selection.indexOf(email.id) > -1;
-        return email;
-      }),
+      }
+      if (computedData.email_category) {
+        const catData = email.email_category.split("-");
+        computedData.category = {
+          type: catData[1],
+          text: catData[0]
+        };
+      }
+      emails.push(computedData);
+    });
+    return orderBy(
+      emails,
       function(o) {
-        return new window.moment(o.email_date).format("YYYYMMDD");
+        return new window.moment(o.email_date);
       },
       ["desc"]
     );
@@ -120,10 +134,10 @@ class InboxStore {
     const emails = [...this.emails];
     emails.map(email => {
       if (!email.read) {
-        if (ids.length) {
-          email.read = ids.indexOf(email.id) > -1;
-        } else {
+        if (typeof ids === "number") {
           email.read = email.id === ids;
+        } else {
+          email.read = ids.indexOf(email.id) > -1;
         }
       }
       return email;
@@ -172,6 +186,37 @@ class InboxStore {
   closeComposeModal() {
     this.composeModalOpen = false;
   }
+  @action.bound
+  openItemModal() {
+    this.itemModalOpen = true;
+  }
+  @action.bound
+  closeItemModal() {
+    this.itemModalOpen = false;
+  }
+  @action.bound
+  setItemModalData(data) {
+    console.log(data);
+    this.itemModalData = data;
+    this.openItemModal();
+    this.setEmailRead(data.id);
+  }
+  @action.bound
+  addMail(data) {
+    const mailData = Object.assign({}, data, {
+      first_name: this.userFirstName,
+      last_name: this.userLastName,
+      email_from: this.userEmail,
+      id: Date.now(),
+      email_date: Date.now()
+    });
+    this.emails = [...this.emails, mailData];
+    this.closeComposeModal();
+  }
+  emailsUpdated = reaction(
+    () => this.emails,
+    emails => store.set("sj.emails", emails)
+  );
 }
 
 export default new InboxStore();
